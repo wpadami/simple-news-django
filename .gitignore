@@ -59,6 +59,8 @@ migrations/
 static/
 staticfiles/
 
+.vscode/
+
 # Flask stuff:
 instance/
 .webassets-cache
