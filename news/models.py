@@ -10,8 +10,8 @@ from ckeditor_uploader.fields import RichTextUploadingField
 # Create your models here.
 
 class Category(models.Model):
-    cat_name = models.CharField(max_length=255)
-    cat_slug = models.SlugField(max_length=255, default="", blank=True, unique=True)
+    cat_name = models.CharField(max_length=200)
+    cat_slug = models.SlugField(max_length=200, default="", blank=True, unique=True)
 
     def save(self, *args, **kwargs):
         if not self.id:
@@ -27,8 +27,8 @@ STATUS = (
 )
 
 class News(models.Model):
-    title = models.CharField(max_length=255)
-    slug = models.SlugField(max_length=255, default="", blank=True, unique=True)
+    title = models.CharField(max_length=200)
+    slug = models.SlugField(max_length=200, default="", blank=True, unique=True)
     category = models.ForeignKey(Category, null=True, on_delete=models.SET_NULL)
     content = RichTextUploadingField()
     author = models.ForeignKey(User, blank=True, on_delete= models.CASCADE,related_name='news')
@@ -40,7 +40,7 @@ class News(models.Model):
     def save(self, *args, **kwargs):
         if not self.id:
             self.slug = slugify(self.title)
-        super(Post, self).save(*args, **kwargs)
+        super(News, self).save(*args, **kwargs)
 
     def was_published_recently(self):
         now = timezone.now()

@@ -87,7 +87,10 @@ DATABASES = {
         'NAME': 'your_db',
         'USER': 'your_user',
         'PASSWORD': 'your_password',
-        'CHARSET' : 'utf8mb4',
+        'OPTIONS': {
+            'charset': 'utf8mb4',
+            'use_unicode' : True,
+        }
     }
 }
 
