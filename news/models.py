@@ -29,13 +29,13 @@ STATUS = (
 class News(models.Model):
     title = models.CharField(max_length=255)
     slug = models.SlugField(max_length=255, default="", blank=True, unique=True)
-    category = models.ForeignKey(Category, blank=True, on_delete=models.SET_NULL)
+    category = models.ForeignKey(Category, null=True, on_delete=models.SET_NULL)
     content = RichTextUploadingField()
     author = models.ForeignKey(User, blank=True, on_delete= models.CASCADE,related_name='news')
     updated_on = models.DateTimeField(auto_now= True)
     created_on = models.DateTimeField(auto_now_add=True)
     status = models.IntegerField(choices=STATUS, default=0)
-	cover = models.ImageField(upload_to='images/',default="",blank=True)
+    cover = models.ImageField(upload_to='images/',default="",blank=True)
 
     def save(self, *args, **kwargs):
         if not self.id:

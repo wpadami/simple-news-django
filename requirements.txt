@@ -1,4 +1,4 @@
-Django>=2.2.2
+Django==2.2.2
 django-admin-interface==0.10.5
 django-ckeditor==5.7.1
 python-slugify==3.0.2
