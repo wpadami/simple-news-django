@@ -1,0 +1,10 @@
+{% include "news/header.html" %}
+<h1>News</h1>
+<ul>
+{% for news in object_list %}
+    <li><a class="news" href="{% url 'news:newsdetail' news.category.cat_slug news.slug %}">{{ news.title }}<span> {{ news.created_on | date }}</a></li>
+{% empty %}
+    <li>No news yet.</li>
+{% endfor %}
+</ul>
+{% include "news/footer.html" %}

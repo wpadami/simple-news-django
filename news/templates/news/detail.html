@@ -1,0 +1,10 @@
+{% include "news/header.html" %}
+<h1>{{ news.title }}</h1>
+<p>{{ news.content | safe }}</p>
+<p>Reporter: {{ news.author }}</p>
+<p>Published: {{ news.created_on|date }}</p>
+<p>Date: {{ now|date }}</p>
+
+<a class="news" href="{% url 'news:newsindex' %}">Anasayfa</a>
+
+{% include "news/footer.html" %}
