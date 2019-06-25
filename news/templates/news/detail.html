@@ -1,4 +1,4 @@
-{% include "news/header.html" %}
+{% include "news/header.html" with ogimage=news.cover|thumbnail_url:'twitter_fb'  %}
 <h1>{{ news.title }}</h1>
 <p>{{ news.content | safe }}</p>
 <p>Reporter: {{ news.author }}</p>

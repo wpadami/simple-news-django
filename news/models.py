@@ -5,6 +5,7 @@ from django.utils import timezone
 from django.contrib.auth.models import User
 from slugify import slugify
 from ckeditor_uploader.fields import RichTextUploadingField
+from easy_thumbnails.fields import ThumbnailerImageField
 
 
 # Create your models here.
@@ -35,7 +36,7 @@ class News(models.Model):
     updated_on = models.DateTimeField(auto_now= True)
     created_on = models.DateTimeField(auto_now_add=True)
     status = models.IntegerField(choices=STATUS, default=0)
-    cover = models.ImageField(upload_to='images/',default="",blank=True)
+    cover = ThumbnailerImageField(upload_to='images/',default="",blank=True)
 
     def save(self, *args, **kwargs):
         if not self.id:

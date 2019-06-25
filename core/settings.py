@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     'colorfield',
     'ckeditor',
     'ckeditor_uploader',
+    'easy_thumbnails',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -247,3 +248,23 @@ CKEDITOR_CONFIGS = {
 }
 
 ###################################
+
+
+#####################
+## EASY THUMBNAILS ##
+#####################
+
+
+THUMBNAIL_ALIASES = {
+    '': {
+        'avatar': {'size': (50, 50), 'crop': True},
+        'indexthumb': {'size': (150, 150), 'crop': True},
+        'twitter_fb': {'size': (1280, 720), 'crop': True},
+        'inpost' : {'size': (720,576), 'crop': True}
+    },
+}
+
+
+#####################
+## EASY THUMBNAILS ##
+#####################
