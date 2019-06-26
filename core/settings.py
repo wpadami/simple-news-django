@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'ckeditor',
     'ckeditor_uploader',
     'easy_thumbnails',
+    'compressor',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -139,6 +140,11 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, "staticfiles")]
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    'compressor.finders.CompressorFinder',
+)
 
 #############
 ## CACHING ##
@@ -254,7 +260,6 @@ CKEDITOR_CONFIGS = {
 ## EASY THUMBNAILS ##
 #####################
 
-
 THUMBNAIL_ALIASES = {
     '': {
         'avatar': {'size': (50, 50), 'crop': True},
@@ -264,7 +269,16 @@ THUMBNAIL_ALIASES = {
     },
 }
 
-
 #####################
 ## EASY THUMBNAILS ##
 #####################
+
+####################
+## COMPRESSOR     ##
+####################
+
+COMPRESS_ENABLED = True
+
+####################
+## COMPRESSOR     ##
+####################

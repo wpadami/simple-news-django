@@ -9,7 +9,10 @@
 	<meta name="og:image" content={{ ogimage }} />
 {% endif %}
 
-
+{% load compress %}
+{% compress css inline %}
+<link rel="stylesheet" href="/static/css/yourcssfile.css" type="text/css" charset="utf-8">
+{% endcompress %}
 
 </head>
 <body>
