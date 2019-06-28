@@ -1,11 +1,27 @@
 {% include "news/header.html" %}
 {% load thumbnail %}
-<h1>News</h1>
-<ul>
-{% for news in object_list %}
-    <li><img src="{{ news.cover|thumbnail_url:'indexthumb' }}" alt="" /> <a class="news" href="{% url 'news:newsdetail' news.category.cat_slug news.slug %}">{{ news.title }}<span> {{ news.created_on | date }}</a></li>
-{% empty %}
-    <li>No news yet.</li>
-{% endfor %}
-</ul>
+<div class="container fluid">
+    <div class="row">
+    {% for news in news_list %}
+        <div class="col-sm-3">
+            <div class="card fluid">
+                <div class="section">
+                    <a class="news" href="{% url 'news:newsdetail' news.category.cat_slug news.slug %}"><h4>{{ news.title|truncatechars:50 }}</h4></a>
+                </div>
+                <img class="section media" src="{{ news.cover|thumbnail_url:'idnexcards' }}" alt="{{ news.title }}" />
+                <div class="section dark">
+                    <span class="icon-share"></span>
+                    <span class="icon-facebook"></span>
+                    <span class="icon-twitter"></span>
+                    <span class="icon-thumbs-up"></span>
+                    <span class="icon-thumbs-down"></span>
+                    <span><a href="{% url 'news:catindex' news.category.cat_slug %}"><strong>{{news.category.cat_name}}</strong></a></span>
+                </div>
+            </div>
+        </div>
+    {% empty %}
+        <li>No news yet.</li>
+    {% endfor %}
+    </div>
+</div>
 {% include "news/footer.html" %}
